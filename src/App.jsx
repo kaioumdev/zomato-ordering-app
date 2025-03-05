@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className='header'>
       <div className='logo-container'>
-        <img src='https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png' alt='logo' />
+        <img className='logo' src='https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png' alt='logo' />
       </div>
       <div>
         <div className='nav-items'>
@@ -23,9 +23,9 @@ const Header = () => {
 function App() {
 
   return (
-    <>
+    <div className='app'>
       <Header></Header>
-    </>
+    </div>
   )
 }
 
