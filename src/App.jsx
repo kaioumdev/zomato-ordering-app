@@ -1,5 +1,6 @@
 import './App.css'
-import { Header } from './components/Header';
+import Body from './components/Body';
+import Header from './components/Header';
 
 const RestaurantCard = (props) => {
   const { resData } = props;
@@ -952,25 +953,6 @@ const resLists = [
     }
   }
 ]
-
-const Body = () => {
-  const filteredRestaurants = resLists
-    .map((item) => item.card?.card)
-    .filter((card) => card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant");
-
-  return (
-    <div className='body'>
-      <div className="search">
-        Search
-      </div>
-      <div className="res-container">
-        {
-          filteredRestaurants?.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
-        }
-      </div>
-    </div>
-  )
-}
 
 function App() {
 
