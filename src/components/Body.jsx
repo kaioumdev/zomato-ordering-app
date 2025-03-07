@@ -1,3 +1,5 @@
+import RestaurantCard from "./RestaurantCard";
+
 const Body = () => {
     const filteredRestaurants = resLists
         .map((item) => item.card?.card)
@@ -10,7 +12,7 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {
-                    filteredRestaurants?.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
+                    filteredRestaurants?.map((restaurant) => <RestaurantCard; key={restaurant.info.id} resData={restaurant} />)
                 }
             </div>
         </div>
