@@ -935,3 +935,5 @@ const resLists = [
         }
     }
 ]
+
+export default resLists;
