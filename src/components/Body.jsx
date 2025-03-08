@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import resLists from "../utils/mocData";
 import RestaurantCard from "./RestaurantCard";
 
@@ -10,6 +10,16 @@ const Body = () => {
         .map((item) => item.card?.card)
         .filter((card) => card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant");
     const [lisOfRestaurants, setListOfRestaurants] = useState(filteredRestaurants);
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83633&tags=layout_CCS_NorthIndian&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
+        const res = await data.json()
+        console.log(res)
+    }
 
 
     return (
