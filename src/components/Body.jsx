@@ -5,6 +5,7 @@ import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
 
+    // Filtering the restaurants from the data
     const filteredRestaurants = resLists
         .map((item) => item.card?.card)
         .filter((card) => card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant");
