@@ -16,7 +16,7 @@ const Body = () => {
     }
 
 
-    return lisOfRestaurants.length === 0 ? <Shimmer /> : (
+    return lisOfRestaurants.length === 0 ? (<Shimmer />) : (
         <div className='body'>
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
