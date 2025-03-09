@@ -36,7 +36,7 @@ const RestaturantMenu = () => {
             <ul>
                 {
                     itemCards?.map((item) => (
-                        <li>{item?.card?.info?.name}</li>
+                        <li>{item?.card?.info?.name} - {item?.card?.info?.price || item?.card?.info?.defaultPrice}</li>
                     ))
                 }
             </ul>
