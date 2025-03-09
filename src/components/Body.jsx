@@ -28,7 +28,7 @@ const Body = () => {
                 <div className="search">
                     <input type="text" className="search-box" value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search for Restaurants" />
                     <button onClick={() => {
-                        const filteredRestaurant = lisOfRestaurants.filter((res) => res?.info?.name.includes(searchText))
+                        const filteredRestaurant = lisOfRestaurants.filter((res) => res?.info?.name.toLowerCase().includes(searchText.toLowerCase()))
                         setListOfRestaurants(filteredRestaurant)
                         console.log(searchText)
                     }}>Search</button>
