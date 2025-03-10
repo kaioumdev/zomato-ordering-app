@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { useEffect, useState } from 'react'
 import Shimmer from './Shimmer'
 import { useParams } from 'react-router-dom';
