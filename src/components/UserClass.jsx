@@ -19,6 +19,10 @@ class UserClass extends React.Component {
         this.setState({ userInfo: json })
         console.log(json)
     }
+
+    componentDidUpdate() {
+        console.log("Component Updated")
+    }
     render() {
         const { name, location, avatar_url } = this.state.userInfo;
         return <div className="user-card">
