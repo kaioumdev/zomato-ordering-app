@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense><Grocery></Grocery></Suspense>
+        element: <Suspense fallback={<h1>Loading...</h1>}><Grocery></Grocery></Suspense>
       }
     ],
     errorElement: <Error></Error>
