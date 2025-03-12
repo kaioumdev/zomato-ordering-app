@@ -6,7 +6,8 @@ class UserClass extends React.Component {
         this.state = {
             userInfo: {
                 name: "Dummy User",
-                location: "default"
+                location: "default",
+                avatar_url: "https://www.dummy.com"
             }
         }
 
@@ -19,13 +20,14 @@ class UserClass extends React.Component {
         console.log(json)
     }
     render() {
-        const { name, location } = this.state.userInfo;
+        const { name, location, avatar_url } = this.state.userInfo;
         return <div className="user-card">
             {/* <button onClick={() => {
                 //NEVER EVER UPDATE STATE VARIABLE DIRECTLY
                 // this.state.count = this.state.count + 1
                 this.setState({ count: this.state.count + 1 })
             }}>Count Increase</button> */}
+            <img src={avatar_url} alt="" />
             <h2>Name: {name}</h2>
             <h3>Location: {location}</h3>
             <h4>Email: kaioum@gmail.com</h4>
