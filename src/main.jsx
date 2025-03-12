@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { lazy, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -8,6 +8,9 @@ import Contact from './components/Contact.jsx'
 import Error from './components/Error.jsx'
 import Body from './components/Body.jsx'
 import RestaturantMenu from './components/RestaturantMenu.jsx'
+// import Grocery from './components/Grocery.jsx'
+
+const Grocery = lazy(() => import('./components/Grocery.jsx'))
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaturantMenu></RestaturantMenu>
+      },
+      {
+        path: "/grocery",
+        element: <Grocery></Grocery>
       }
     ],
     errorElement: <Error></Error>
