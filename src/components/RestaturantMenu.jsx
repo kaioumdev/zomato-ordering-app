@@ -22,9 +22,9 @@ const RestaturantMenu = () => {
     console.log(categories)
 
     return (
-        <div className='menu'>
-            <h1>{name || "Restaurant Name Not Available"}</h1>
-            <h3>{cuisines?.join(", ")} - {costForTwoMessage}</h3>
+        <div className='text-center'>
+            <h1 className='font-bold my-6 text-2xl'>{name || "Restaurant Name Not Available"}</h1>
+            <p className='font-bold text-lg'>{cuisines?.join(", ")} - {costForTwoMessage}</p>
             {/* <h2>Menu</h2>
             <ul>
                 {
