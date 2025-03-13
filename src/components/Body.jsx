@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -9,6 +9,8 @@ const Body = () => {
     const [lisOfRestaurants, setListOfRestaurants] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     //Whenever state variable update, react trigger a reconciliation cycle(re-render the component)
     console.log("Body Rendering", lisOfRestaurants)
@@ -50,7 +52,11 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap">
                 {
-                    filteredRestaurants?.map((restaurant) => <Link key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`}><RestaurantCard resData={restaurant} /></Link>)
+                    filteredRestaurants?.map((restaurant) => <Link key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`}>
+                        {
+                            restaurant.info.isOpen ? <RestaurantCardPromoted resData={restaurant}></RestaurantCardPromoted> : <RestaurantCard resData={restaurant} />
+                        }
+                    </Link>)
                 }
             </div>
         </div>

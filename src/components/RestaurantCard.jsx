@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { CDN_URL } from "../utils/contants";
 
 const RestaurantCard = (props) => {
