@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
 import { CDN_URL } from "../utils/contants";
 
@@ -17,11 +18,11 @@ const RestaurantCard = (props) => {
 
 //Higher Order Components
 export const withPromotedLabel = (RestaurantCard) => {
-    return () => {
+    return (props) => {
         return (
             <div>
                 <label>Promoted</label>
-                <RestaurantCard />
+                <RestaurantCard {...props} />
             </div>
         )
     }
