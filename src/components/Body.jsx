@@ -13,7 +13,6 @@ const Body = () => {
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     //Whenever state variable update, react trigger a reconciliation cycle(re-render the component)
-    console.log("Body Rendering", lisOfRestaurants)
 
     useEffect(() => {
         fetchData()
