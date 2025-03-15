@@ -26,15 +26,7 @@ const RestaturantMenu = () => {
         <div className='text-center'>
             <h1 className='font-bold my-6 text-2xl'>{name || "Restaurant Name Not Available"}</h1>
             <p className='font-bold text-lg'>{cuisines?.join(", ")} - {costForTwoMessage}</p>
-            {/* <h2>Menu</h2>
-            <ul>
-                {
-                    itemCards?.map((item) => (
-                        <li key={item?.card?.info?.id}>{item?.card?.info?.name} - {"$"} {item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}</li>
-                    ))
-                }
-            </ul> */}
-
+            {/* categories accordian */}
             {
                 categories.map((category) => <RestaurantCategory data={category?.card?.card}></RestaurantCategory>)
             }
