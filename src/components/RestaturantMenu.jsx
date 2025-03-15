@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-unsafe-optional-chaining */
 import Shimmer from './Shimmer'
 import { useParams } from 'react-router-dom';
@@ -17,10 +18,8 @@ const RestaturantMenu = () => {
     const { name, cuisines, costForTwoMessage } = restaurantInfo.card?.card?.info || {};
 
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 
     const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
-    console.log(categories)
 
     return (
         <div className='text-center'>
@@ -30,7 +29,7 @@ const RestaturantMenu = () => {
             {
                 categories.map((category, index) =>
                     // controlled component
-                    <RestaurantCategory key={index} data={category?.card?.card} showItems={showIndex === index ? true : false} setShowIndex={() => setShowIndex(index)}></RestaurantCategory>)
+                    <RestaurantCategory key={index} data={category?.card?.card} showItems={showIndex === index ? true : false} setShowIndex={(prevIndex) => setShowIndex(prevIndex => (prevIndex === index ? null : index))}></RestaurantCategory>)
             }
         </div>
     )
