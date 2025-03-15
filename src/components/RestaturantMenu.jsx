@@ -30,7 +30,7 @@ const RestaturantMenu = () => {
             {
                 categories.map((category, index) =>
                     // controlled component
-                    <RestaurantCategory data={category?.card?.card} showItems={showIndex === index ? true : false} setShowIndex={() => setShowIndex(index)}></RestaurantCategory>)
+                    <RestaurantCategory key={index} data={category?.card?.card} showItems={showIndex === index ? true : false} setShowIndex={() => setShowIndex(index)}></RestaurantCategory>)
             }
         </div>
     )
