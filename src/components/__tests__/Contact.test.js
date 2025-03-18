@@ -9,3 +9,27 @@ test("Should load contact us component", () => {
 
     expect(heading).toBeInTheDocument()
 })
+
+test("Should load button inside contact component", () => {
+    render(<Contact />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toBeInTheDocument()
+})
+
+test("Should load button inside contact component", () => {
+    render(<Contact />)
+
+    const button = screen.getByText('Submit')
+
+    expect(button).toBeInTheDocument()
+})
+
+test("Should load input name inside contact component", () => {
+    render(<Contact />)
+
+    const input = screen.getByPlaceholderText('Name')
+
+    expect(input).toBeInTheDocument()
+})
