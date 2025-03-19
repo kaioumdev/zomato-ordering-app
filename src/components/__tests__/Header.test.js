@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
-import { render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import Header from '../Header';
 import { BrowserRouter } from 'react-router-dom';
 import appStore from '../../utils/appStore';
-import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 test("Should load header component with a login button", () => {
     render(
@@ -43,5 +42,20 @@ it("Should load header component with a cart ", () => {
     const loginButton = screen.getByText(/Cart/);
     // const loginButton = screen.getByText('Login');
     expect(loginButton).toBeInTheDocument();
+})
+
+test("Should change login button to logout", () => {
+    render(
+        <BrowserRouter>
+            <Provider store={appStore}>
+                <Header />
+            </Provider>
+        </BrowserRouter>
+    )
+    const loginButton = screen.getByRole('button', { name: 'Login' });
+    fireEvent.click(loginButton);
+    const logoutButton = screen.getByRole('button', { name: 'Logout' });
+    // const loginButton = screen.getByText('Login');
+    expect(logoutButton).toBeInTheDocument();
 })
 
