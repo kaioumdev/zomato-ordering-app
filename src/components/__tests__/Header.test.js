@@ -31,3 +31,17 @@ it("Should load header component with a cart items", () => {
     // const loginButton = screen.getByText('Login');
     expect(loginButton).toBeInTheDocument();
 })
+
+it("Should load header component with a cart ", () => {
+    render(
+        <BrowserRouter>
+            <Provider store={appStore}>
+                <Header />
+            </Provider>
+        </BrowserRouter>
+    )
+    const loginButton = screen.getByText(/Cart/);
+    // const loginButton = screen.getByText('Login');
+    expect(loginButton).toBeInTheDocument();
+})
+
