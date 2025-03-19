@@ -4,7 +4,7 @@ import "@testing-library/jest-dom"
 /* eslint-disable no-undef */
 
 describe("Contact component", () => {
-    test("Should load contact us component", () => {
+    it("Should load contact us component", () => {
         render(<Contact />)
 
         const heading = screen.getByRole('heading')
