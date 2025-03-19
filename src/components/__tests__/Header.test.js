@@ -1,11 +1,12 @@
-import { render } from "@testing-library/react"
-import Header from '../Header';
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import appStore from '../../utils/appStore';
-
 /* eslint-disable no-undef */
-it("Should load header component with a login button", () => {
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import Header from '../Header';
+import { BrowserRouter } from 'react-router-dom';
+import appStore from '../../utils/appStore';
+import { screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+test("Should load header component with a login button", () => {
     render(
         <BrowserRouter>
             <Provider store={appStore}>
@@ -13,4 +14,6 @@ it("Should load header component with a login button", () => {
             </Provider>
         </BrowserRouter>
     )
+    const loginButton = screen.getByText('Login');
+    expect(loginButton).toBeInTheDocument();
 })
