@@ -33,3 +33,11 @@ test("Should load input name inside contact component", () => {
 
     expect(input).toBeInTheDocument()
 })
+
+test("Should load input element inside contact component", () => {
+    render(<Contact />)
+
+    const inputBoxes = screen.getAllByRole('textbox')
+
+    expect(inputBoxes.length).toBe(2)
+})
