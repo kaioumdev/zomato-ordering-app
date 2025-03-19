@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import Body from "../Body"
 import MOCK_DATA from "../../components/mocks/mockResListsData.json"
 // import { act } from "react"
@@ -20,6 +20,11 @@ test("Should render the Body component with search", async () => {
     await act(async () => render(<BrowserRouter><Body></Body></BrowserRouter>))
 
     const searchBtn = screen.getByRole('button', { name: 'Search' })
-    console.log(searchBtn)
-    expect(searchBtn).toBeInTheDocument()
+    const searchInput = screen.getByTestId("searchInput")
+    fireEvent.change(searchInput, { target: { value: 'burger' } })
+    fireEvent.click(searchBtn)
+
+    //Screen should 4 res cards
+    const cards = screen.getAllByTestId('resCard')
+    expect(cards.length).toBe(7)
 })
