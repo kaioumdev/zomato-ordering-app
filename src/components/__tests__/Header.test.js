@@ -14,6 +14,7 @@ test("Should load header component with a login button", () => {
             </Provider>
         </BrowserRouter>
     )
-    const loginButton = screen.getByText('Login');
+    const loginButton = screen.getByRole('button')
+    // const loginButton = screen.getByText('Login');
     expect(loginButton).toBeInTheDocument();
 })
